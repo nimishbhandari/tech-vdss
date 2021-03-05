@@ -1,0 +1,217 @@
+@import '../../sass/global';
+.home {
+  &__right {
+    height: inherit;
+    position: relative;
+    .mouse{
+      width: 25px;
+      height: 40px;
+      border: 2px solid $vdss-primary;
+      position: absolute;
+      top: 80%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0 auto;
+      z-index: 100;
+      border-radius: 12px;
+      &::before{
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        left: 0;
+        top:6px;
+        right:0;
+        bottom: 0;
+        margin: 0 auto;
+        background: $vdss-primary;
+        animation: scroll 1s ease-in-out infinite;
+      }
+    }
+    &--desc{
+      position: absolute;
+      width: 70%;
+      height: max-content;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      z-index: 3;
+      color: white;
+      text-align: center;
+      h1{
+        font-size: 3.5em;
+        font-weight: 500;
+      }
+      .call_to_action{
+        border-radius: 3px;
+        border: 2px solid $vdss-primary;
+        box-shadow: 0 0 0 0 $vdss-primary inset;
+        background: transparent;
+        padding: 15px 20px;
+        margin: 1.3em auto;
+        font-size: 1.3em;
+        font-weight: 400;
+        text-transform: uppercase;
+        transition: all 300ms ease;
+        &:hover{
+          box-shadow: 0 0 0 2em $vdss-primary inset;
+          background: $vdss-primary;
+          border: 2px solid transparent;
+          transition: all 300ms ease;
+        }
+      }
+    }
+    &--card {
+      width: 100%;
+      align-items: center;
+      justify-self: center;
+      background: #ffffff;
+      // border-radius: 10px;
+      // box-shadow: rgba(160, 161, 188, 0.35) 0px 3px 9px 1px;
+      .video {
+        margin: 0 auto;
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        .overlay{
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          background: linear-gradient(to bottom, #1f28334b, #0b0c1083);
+          top:0;
+          left:0;
+          z-index: 2;
+          opacity: 0.9;
+        }
+        video {
+          // margin-top: 22px;
+          // border-radius: 10px;
+          position: relative;
+          z-index: 1;
+          object-fit: cover;
+          object-position: center;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  &__left {
+    width: 95%;
+    color: $vdss-dark1;
+    &--h1 {
+      font-size: 3.5em;
+      font-weight: 600;
+      padding-bottom: 15px;
+    }
+    &--h3 {
+      font-size: 2em;
+      font-weight: 500;
+    }
+    &--desc {
+      font-size: 1.2em;
+      font-weight: 400;
+    }
+    &--bottom {
+      padding: 30px 0;
+      display: flex;
+      align-items: center;
+      .left__input {
+        flex-grow: 2;
+        &--email {
+          width: 100%;
+        }
+      }
+      .btn {
+        font-size: 1.3em;
+        padding: 20px 30px;
+        margin-left: 10px;
+        box-shadow: rgba(160, 161, 188, 0.35) 0px 3px 5px 1px;
+        transition: 0.25s;
+        &:hover {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.flex_div {
+  display: flex;
+  height: 500px;
+  width: 100%;
+  
+}
+.banner{
+  padding: 10px 0;
+  width:100%;
+  background-color: $vdss-p-dark;
+  &_heading{
+    color:white;
+    font-size: 25px;
+    @include f1;
+    text-align: center;
+    @include font;
+  }
+  &_content{
+    color:white;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 5px;
+  }
+
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .home{
+    &__right{
+      .mouse{
+        width: 25px;
+        height: 40px;
+        top: 70%;
+        z-index: 5;
+      }
+      .banner{
+        padding: 7px 20px;
+        &_heading{
+          font-size: 18px;
+        }
+        &_content{
+          font-size: 12px;
+        }
+      }
+      &--card{
+        .video{
+          height: 500px;
+        }
+      }
+      
+      &--desc{
+        top: -100px;
+        h1{
+          font-size: 1.5em;
+        }
+        .call_to_action{
+          font-size: 0.8em;
+          padding: 10px 15px;
+        }
+      }
+    }
+  }
+}

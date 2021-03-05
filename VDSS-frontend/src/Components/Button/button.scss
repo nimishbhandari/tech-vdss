@@ -1,0 +1,24 @@
+@import '../../sass/global';
+.button{
+  background: $vdss-primary;
+  color: white;
+  padding: 10px 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  width: max-content;
+  cursor: pointer;
+  font-size: 15px;
+  &:hover{
+    background: $vdss-p-dark;
+  }
+  .button-icon{
+    height: 50px;
+    width: 50px;
+    font-size: 1.8em;
+    margin: 0 auto;
+    svg{
+      margin-left: -4px;
+      margin-top: 8px;
+    }
+  }
+}

@@ -1,0 +1,243 @@
+@import "../../sass/global";
+
+.domain_outer {
+  padding: 100px 0;
+}
+.process {
+  background: $vdss-dark2;
+  .process_heading {
+    padding: 1em 0;
+    font-size: 2em;
+    font-weight: 400;
+    color: white;
+    @include heading-h1;
+    text-align: center;
+    // text-transform: uppercase;
+    position: relative;
+    &::after {
+      margin: 0 0 10px 15px;
+    }
+    &::before {
+      margin: 0 15px 10px 0;
+    }
+    &::after,
+    &::before {
+      content: "";
+      background: $vdss-primary;
+      width: 70px;
+      height: 2px;
+      display: inline-block;
+    }
+  }
+  .process_steps {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-around;
+    &--ele {
+      text-align: center;
+      padding: 1.4em 2em;
+      .steps_icon {
+        position: relative;
+        background: $vdss-primary;
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+        border-radius: 50%;
+        span {
+          position: absolute;
+          background: white;
+          border: 3px solid $vdss-dark2;
+          border-radius: 50%;
+          height: 25px;
+          width: 25px;
+          top: 0px;
+          left: 0;
+          font-weight: 500;
+          color: rgb(218, 40, 40);
+        }
+        svg {
+          font-size: 3em;
+          color: white;
+          margin-top: 20px;
+        }
+      }
+      h4 {
+        padding: 1em 0;
+        color: white;
+      }
+    }
+  }
+}
+.domain_heading {
+  font-size: 2em;
+  font-weight: 400;
+  color: $vdss-dark1;
+  @include heading-h1;
+  text-align: center;
+  // text-transform: uppercase;
+  position: relative;
+  &::after {
+    margin: 0 0 10px 15px;
+  }
+  &::before {
+    margin: 0 15px 10px 0;
+  }
+  &::after,
+  &::before {
+    content: "";
+    background: $vdss-primary;
+    width: 70px;
+    height: 2px;
+    display: inline-block;
+  }
+}
+.card_outer {
+  display: flex;
+  width: 90%;
+  // align-content: center;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  padding-left: 45px;
+  padding-right: 50px;
+}
+.card {
+  min-height: 35rem;
+  background-color: white;
+  width: 100%;
+  margin-left: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px 1px rgba(74, 74, 75, 0.2);
+  z-index: 500;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  //   justify-content: space-between;
+  padding: 2em 1em;
+  &::before {
+    content: " ";
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    background-color: $vdss-primary;
+    opacity: 0.6;
+    top: -20px;
+    left: -20px;
+    transition: all 0.5s;
+  }
+  &:hover::before {
+    width: 100%;
+    height: 100%;
+    background-color: $vdss-p-dark;
+    border-radius: 10px;
+    transition: all 0.5s;
+    top: 0;
+    left: 0;
+    opacity: 1;
+  }
+  &:hover {
+    .card__icon {
+      background: white;
+      transition: all 0.5s;
+      svg {
+        color: $vdss-p-dark;
+      }
+    }
+    .card__head {
+      h3 {
+        color: white !important;
+      }
+    }
+    .card__content {
+      p {
+        color: white;
+      }
+    }
+  }
+  &__icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: $vdss-p-dark;
+    position: relative;
+    margin: 10px 5px;
+    transition: all 0.5s;
+    svg {
+      font-size: 2em;
+      color: white;
+      position: absolute;
+      top: 28%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0 auto;
+    }
+  }
+  &__head {
+    z-index: 100;
+    padding: 10px 10px;
+    h3 {
+      @include heading-h3;
+      font-size: 1.5em;
+      font-weight: 500;
+    }
+  }
+  &__content {
+    z-index: 100;
+    padding: 0 10px;
+    p {
+      @include para_p1;
+      color: $vdss-dark1;
+      font-size: 15px;
+      font-weight: 400;
+    }
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .domain_outer {
+    padding: 30px;
+    .domain_heading {
+      font-size: 2em;
+      &::after,
+      &::before {
+        content: "";
+        background: $vdss-primary;
+        width: 50px;
+        height: 2px;
+        display: inline-block;
+      }
+    }
+    .card_outer {
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      padding: 20px 0;
+      .card {
+        z-index: 2;
+        margin: 5px 0;
+      }
+    }
+  }
+  .process {
+    .process_heading {
+      font-size: 2em;
+      &::after,
+      &::before {
+        content: "";
+        background: $vdss-primary;
+        width: 50px;
+        height: 2px;
+        display: inline-block;
+      }
+    }
+    .process_steps {
+      flex-direction: column;
+    }
+  }
+}

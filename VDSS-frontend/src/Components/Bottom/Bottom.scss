@@ -1,0 +1,14 @@
+@import '../../sass/global';
+.bottom_wrapper{
+    height:500px;
+    width:100%;
+    background-color: $vdss-dark1;
+    padding-top:30px;
+    text-align:center;
+    .bottom_heading{
+        color: white;
+        font-weight:500px;
+        font-size: 40px;
+        text-align:centre;
+    }
+}

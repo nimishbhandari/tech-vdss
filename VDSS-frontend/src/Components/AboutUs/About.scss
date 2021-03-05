@@ -1,0 +1,191 @@
+@import '../../sass/global';
+.About_wrapper {
+  padding-top: 13em;
+  // margin: 0 90px;
+  .About_heading {
+    text-align: center;
+    @include heading-h1;
+    color: $vdss-dark1;
+    &::after, &::before{
+      content: '';
+      width: 70px;
+      height: 2px;
+      background: $vdss-primary;
+      display: inline-block;
+      margin: 10px 15px;
+    }
+  }
+  .About_outer {
+    padding: 40px 0;
+    margin: 0 90px;
+    display: flex;
+
+    .About_left {
+      width: 50%;
+      font-size: 20px;
+      color: $vdss-dark2;
+      .p_left{
+        // font-weight: 700;
+        padding-top: 5px;
+        @include para_p1;
+      }
+    }
+    .About_right {
+      width: 50%;
+      align-items: center;
+      justify-self: center;
+      animation: mymove_right 0.8s 1;
+        &_img{
+          width: max-content;
+          margin: 0 auto;
+          svg {
+            height: 220px;
+            width: auto;
+            animation: up-down 2s ease-in-out infinite alternate-reverse both;
+          }
+        }
+      
+    }
+  }
+  .portfolio{
+    display: flex;
+    flex-direction: row;
+    margin: 1em 0;
+    padding: 4em 0;
+    background: $vdss-dark2;
+    
+    &__left{
+      width: 40%;
+      .img{
+        width: max-content;
+        margin: 0 auto;
+        svg{
+          height: 300px;
+          width: auto;
+          
+        }
+      }
+    }
+    &__right{
+      width: 50%;
+      align-self: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 1em;
+      &__element{
+        display: flex;
+        align-items: center;
+        &:hover{
+          svg{
+            transform: rotate(360deg);
+            transition: ease-in 0.8s;
+          }
+        }
+        svg{
+          font-size: 4em;
+          color: $vdss-primary;
+        }
+        .ele__left{
+          padding: 1em;
+          h2{
+            @include heading-h2;
+            padding: 5px 0;
+            color: $vdss-primary;
+          }
+          p{
+            @include para_p2;
+            text-transform: uppercase;
+            color: $vdss-primary;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes mymove_left {
+  0% {
+    margin-right: 100%;
+  }
+}
+@keyframes mymove_right {
+  0% {
+    margin-left: 100%;
+  }
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(7px);
+  }
+  100% {
+    transform: translateY(-7px);
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .About_wrapper{
+    padding: 3em 0;
+    .About_heading{
+      font-size: 2em;
+      &::after, &::before{
+        content: '';
+        width: 50px;
+        height: 2px;
+        background: $vdss-primary;
+        display: inline-block;
+        margin: 10px 15px;
+      }
+    }
+    .portfolio{
+      flex-direction: column ;
+      padding: 2em 20px;
+      &__right{
+        width: 100% ;
+        align-content: center;
+        &__element{
+          align-self: center;
+          justify-self: center;
+          svg{
+            font-size: 3em;
+          }
+          .ele__left{
+            h2{
+              font-size: 1em;
+            }
+            p{
+              font-size: 0.7em;
+            }
+          }
+        }
+      }
+      &__left{
+        width: 100%;
+        .img{
+          width: 80%;
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          svg{
+            
+            width: 80%;
+          }
+        }
+      }
+    }
+    .About_outer{
+
+      flex-direction: column-reverse;
+      padding: 20px;
+      margin: 0;
+      .About_left{
+        width: 100%;
+        text-align: justify;
+      }
+      .About_right{
+        width: 100%;
+      }
+    }
+  }
+  
+}

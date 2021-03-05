@@ -1,0 +1,20 @@
+@import '../../sass/global';
+.input{
+  height: 62px;
+  box-shadow: rgba(160, 161, 188, 0.35) 0px 3px 6px 1px;
+  outline: none;
+  font-size: 20px;
+  padding: 21px 23px;
+  border: 1px solid $light-grey;
+  line-height: 1.5;
+  background-color: #fff;
+  transition: all 0.3s;
+  text-overflow: ellipsis;
+  &::placeholder{
+    color: rgba($color: rgb(177, 174, 174), $alpha: 0.9);
+    text-overflow: ellipsis;
+  }
+  &:focus{
+    border: 1px solid $vdss-primary;
+  }
+}

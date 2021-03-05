@@ -1,0 +1,25 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+*::before, *::after{
+  box-sizing: border-box;
+}
+
+html,body{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  @include font;
+  font-size: 14px;
+}
+html{
+  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  scrollbar-color: $vdss-dark1;
+}
+::-webkit-scrollbar-track{
+  display: none;
+}

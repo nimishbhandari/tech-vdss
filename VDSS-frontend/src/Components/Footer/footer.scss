@@ -1,0 +1,188 @@
+@import '../../sass/global';
+
+.footer {
+  &__wrapper {
+    padding: 60px 80px;
+    &__section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .footer__right {
+        display: flex;
+        justify-content: space-around;
+        align-self: center;
+        width: 100%;
+        position: relative;
+        
+        .map {
+          h3 {
+            position: relative;
+            &::before,
+            &::after {
+              content: '';
+              position: absolute;
+              background: $vdss-primary;
+              width: 20px;
+              height: 20px;
+              left: 0;
+              right: -2px;
+              transform: rotateX(-50deg);
+              top: -22px;
+              border-radius: 50%;
+              bottom: 0;
+              margin: auto;
+            }
+            &::after {
+              background: none;
+              border-radius: 2px solid $vdss-p-dark;
+              animation: pulse 1s ease-out;
+              animation-iteration-count: infinite;
+              opacity: 0;
+              box-shadow: 0 0 1px 2px $vdss-p-dark;
+              animation-delay: 1.1s;
+            }
+          }
+          svg {
+            animation: rotate 2s infinite;
+            animation-timing-function: linear;
+            position: relative;
+          }
+        }
+        &--item {
+          text-align: center;
+          padding: 1em 1em;
+          svg {
+            font-size: 3em;
+            color: $vdss-primary;
+          }
+          h3 {
+            padding-top: 1.5em;
+            color: $vdss-dark2;
+            font-size: 1em;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+          }
+          p{
+            padding-top: 4px;
+            font-size: 1.1em;
+            font-weight: 400;
+            color: $vdss-dark1;
+            letter-spacing: 1.2px;
+            &:hover{
+              color: $vdss-p-dark;
+            }
+          }
+        }
+      }
+      .footer__left {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        position: relative;
+        .bounce{
+          width: 10px;
+          height: 10px;
+          background: $vdss-p-dark;
+          border-radius: 50%;
+          position: absolute;
+          bottom: 180px;
+          right: 100px;
+          animation: bounce 0.5s;
+          animation-direction: alternate;
+          animation-iteration-count: infinite;
+          animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.4);
+        }
+        h1 {
+          color: $vdss-dark1;
+          font-size: 2.5em;
+          letter-spacing: 1.5px;
+          position: relative;
+          &::after {
+            content: '';
+            width: 230px;
+            height: 2px;
+            background: $vdss-primary;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+          }
+        }
+        .social {
+          display: flex;
+          justify-content: space-between;
+          padding: 16px 0;
+          &__icon {
+            margin-right: 10px;
+            width: 50px;
+            height: 50px;
+            background: $vdss-dark2;
+            border-radius: 50%;
+            position: relative;
+            svg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              margin: auto;
+              color: white;
+              font-size: 2em;
+            }
+            &:hover {
+              svg {
+                color: $vdss-primary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.1, 0.1) rotateX(-55deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5, 1.5) rotateX(-55deg);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce{
+  from{
+    transform: translate3d(0, 0, 0);
+  }
+  to{
+    transform: translate3d(0, 100px, 0);
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .footer {
+    &__wrapper {
+      padding: 40px 20px;
+      &__section {
+        flex-direction: column;
+        .footer__right{
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
