@@ -44,9 +44,11 @@ function AdminPanel({ history }) {
       >
         Logout
       </Button>
-      <Button variant="contained" color="primary" style={{ margin: 20 }}>
-        Update Password
-      </Button>
+      <a href="/updatePasswd">
+        <Button variant="contained" color="primary" style={{ margin: 20 }}>
+          Update Password
+        </Button>
+      </a>
       <h1 style={{ textAlign: "center" }}>VDSS Admin </h1>
       <MaterialTable
         columns={[
