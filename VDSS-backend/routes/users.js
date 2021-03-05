@@ -49,21 +49,24 @@ router.post("/loginAuth", (req, res) => {
     });
 });
 
-router.post("/updatePasswd", (req, res) => {
-  User.findOne({}).then((user) => {
-    if (!user) {
+router.post("/updatePassword", (req, res) => {
+  
+  const old = req.body.oldPass;
+
+  User.find({email : req.body.email}).exec((err, user) => {
+    if (err || !user) {
       return res.status(500).json({
         message: "No user!",
       });
     }
 
-    bcrypt.compare(req.body.oldPass, user.password).then((isMatch) => {
+    bcrypt.compare(old, user[0].password).then((isMatch) => {
       if (isMatch) {
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(req.body.newPass, salt, (err, hash) => {
             if (err) throw err;
-            user.password = hash;
-            user
+            user[0].password = hash;
+            user[0]
               .save()
               .then((user) => {
                 res.status(200).json({ done: 1 });

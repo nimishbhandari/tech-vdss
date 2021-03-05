@@ -5,7 +5,8 @@ import Input from "@material-ui/core/Input";
 
 import "../../bootstrap.min.css";
 
-function Update() {
+function Update({history}) {
+  const [email, setEmail] = useState("");
   const [old, setOld] = useState("");
   const [newPasswd, setNew] = useState("");
   const [confirm, setConfirm] = useState("");
@@ -16,15 +17,20 @@ function Update() {
     if (newPasswd === confirm) {
       axios
         .post(`${process.env.REACT_APP_USER}/updatePassword`, {
+          email: email,
           oldPass: old,
-          newPass: newPasswd,
+          newPass: newPasswd
         })
         .then((res) => {
-          if (res.data.response === 1) {
+          if (res.data.done === 1) {
             alert("Password Updated Successfully");
           } else {
             alert("You have not provided the correct current password");
           }
+
+          setTimeout(() => {
+            history.push('/dashboard');
+          }, 1500);
         })
         .catch((err) => {
           alert("Something Went Wrong");
@@ -58,6 +64,20 @@ function Update() {
               type="text"
               required
             /> */}
+            <Input
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              value={email}
+              id="old_passwd"
+              type="email"
+              required
+              placeholder="Email"
+              inputProps={{ "aria-label": "description" }}
+              style={{ width: "40vw" }}
+            />
+            </div>
+          <div className="input-field" style={{ marginTop: "2rem" }}>
             <Input
               onChange={(e) => {
                 setOld(e.target.value);
